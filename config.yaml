@@ -1,0 +1,78 @@
+# =============================================================================
+# LLM - Config
+# =============================================================================
+
+# arXiv Makale ID'leri
+arxiv_ids:
+  - "0709.1359"
+  - "1503.07077"
+  - "1509.05429"
+  - "1711.05744"
+  - "1807.00807"
+  - "1810.07857"
+  - "1903.07461"
+  - "1905.01324"
+  - "1905.07424"
+  - "2003.08263"
+  - "2006.14636"
+  - "2106.01571"
+  - "2110.10694"
+  - "2210.01813"
+  - "2303.03407"
+
+# Dizinler
+paths:
+  sources_dir: "./arxiv_sources"
+  output_dir: "./processed_data"
+
+# arxiv_tex_data.py ayarları
+processing:
+  chunk_size: 800
+  chunk_overlap: 100
+  min_len: 50
+  delay: 2
+
+# finetune.py ayarları
+finetune:
+  model: "mlx-community/Qwen2.5-7B-Instruct-4bit"
+  data_dir: "./data"
+  adapter_dir: "./adapters"
+  fused_dir: "./fused_model"
+  train_split: 0.8
+  valid_split: 0.1
+
+  training:
+    iters: 150
+    batch_size: 1
+    learning_rate: 1e-5
+    steps_per_report: 10
+    steps_per_eval: 50
+    save_every: 50
+    max_seq_length: 2048
+    grad_checkpoint: true
+    mask_prompt: true
+
+  lora:
+    num_layers: 8
+    rank: 8
+    scale: 16.0
+    dropout: 0.05
+
+  generation:
+    max_tokens: 512
+    temperature: 0.1
+
+  system_prompt: "You are a research assistant specializing in galaxy clusters, cosmology, and astrophysics."
+
+# RAG ayarları
+rag:
+  embedding_model: "BAAI/bge-small-en-v1.5"
+  chunk_size: 512
+  chunk_overlap: 50
+  top_k: 3
+  chroma_dir: "./chroma_db"
+
+# Eval ayarları
+eval:
+  judge_model: "mlx-community/Meta-Llama-3.1-8B-Instruct-4bit"
+  use_separate_judge: true

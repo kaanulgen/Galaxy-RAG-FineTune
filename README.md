@@ -1,4 +1,4 @@
-# Astro-LLM-Lab: Domain-Specific RAG and Fine-Tuning for Extragalactic Astronomy
+# Astro-LLM-Lab — Domain-Specific Research Assistant for Astronomy Papers
 
 Bu proje, galaksidışı astronomi alanında derin öğrenme yöntemleri kullanılan çalışmalara hakim, yerel çalışan bir araştırma asistanı geliştirmek amacıyla hazırlanmıştır. Apple Silicon (Mac Mini M4, 16GB RAM) üzerinde API maliyeti olmadan hibrit bir mimariyle çalışacak şekilde optimize edilmiştir.
 

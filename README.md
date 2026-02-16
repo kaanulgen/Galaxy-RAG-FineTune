@@ -1,13 +1,13 @@
 # Domain Spesifik LLM: QLoRA Finetuning ve RAG Entegrasyonu
 
-Bu proje, galaksidışı astronomi alanında derin öğrenme yöntemleri kullanılan çalışmalara hakim, yerel çalışan bir araştırma asistanı geliştirmek amacıyla hazırlanmıştır. Apple Silicon (Mac Mini M4, 16GB RAM) üzerinde API maliyeti olmadan hibrit bir mimariyle çalışacak şekilde optimize edilmiştir.
+Bu projede, galaksidışı astronomide derin öğrenme kullanan çalışmalara gerçekten hakim olabilen tamamen yerel çalışan bir araştırma asistanı geliştirmeyi amaçladım. Sistemi Apple Silicon (Mac Mini M4, 16 GB RAM) üzerinde API maliyeti olmadan çalışacak hibrit bir mimariyle kurdum.
 
 ## Sistem Mimarisi
 
 Sistem, genel amaçlı modellerin teknik detaylardaki yetersizliğini ve halüsinasyon riskini aşmak için iki ana bileşeni birleştirir:
 
 * **Fine-Tuning (İnce Ayar):** Qwen2.5-7B modeli, ChatML formatında hazırlanmış 223 soru-cevap çifti ile eğitilerek akademik terminoloji kazandırılmıştır.
-* **RAG (Retrieval-Augmented Generation):** 15 adet güncel arXiv makalesi vektör veritabanına indekslenerek, modelin yanıt üretirken doğrudan kaynak metne erişmesi sağlanmıştır.
+* **RAG (Retrieval-Augmented Generation):** 15 adet arXiv makalesini vektör veritabanına indekslenerek, modelin yanıt üretirken doğrudan kaynak metne erişmesi sağlanmıştır.
 
 ## Pipeline Bileşenleri
 
